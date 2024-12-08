@@ -14,10 +14,21 @@
         background: linear-gradient(135deg, #1e1e2f, #29293f);
         color: white;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
         height: 100vh;
         overflow: hidden;
+      }
+
+      /* Título sobre el juego */
+      #unity-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #d4bfff;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       /* Contenedor de Unity */
@@ -68,15 +79,6 @@
         transition: width 0.3s ease;
       }
 
-      /* Mensajes de advertencia */
-      #unity-warning {
-        color: red;
-        font-size: 14px;
-        text-align: center;
-        margin-top: 10px;
-        display: none;
-      }
-
       /* Pie de página */
       #unity-footer {
         position: absolute;
@@ -89,24 +91,6 @@
         width: 90%;
       }
 
-      #unity-webgl-logo {
-        width: 48px;
-        height: 48px;
-        background: url("TemplateData/webgl-logo.png") no-repeat center/contain;
-      }
-
-      #unity-fullscreen-button {
-        width: 48px;
-        height: 48px;
-        background: url("TemplateData/fullscreen-button.png") no-repeat center/contain;
-        cursor: pointer;
-        transition: transform 0.2s;
-      }
-
-      #unity-fullscreen-button:hover {
-        transform: scale(1.1);
-      }
-
       #unity-build-title {
         font-size: 18px;
         font-weight: bold;
@@ -115,6 +99,10 @@
     </style>
   </head>
   <body>
+    <!-- Título del juego -->
+    <div id="unity-title">Data Structure</div>
+
+    <!-- Contenedor de Unity -->
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -124,8 +112,6 @@
       </div>
       <div id="unity-warning"></div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Data Structure</div>
       </div>
     </div>
