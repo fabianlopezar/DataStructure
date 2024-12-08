@@ -16,8 +16,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         min-height: 100vh;
+        overflow-y: auto; /* Habilitar scroll vertical */
       }
 
       /* Título sobre el juego */
@@ -25,7 +26,7 @@
         font-size: 36px;
         font-weight: bold;
         color: #d4bfff;
-        margin-bottom: 20px;
+        margin: 20px 0;
         text-align: center;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
@@ -57,6 +58,7 @@
         text-align: left;
         font-size: 16px;
         line-height: 1.8;
+        margin-bottom: 20px;
       }
 
       #game-info h2 {
@@ -108,7 +110,6 @@
         <a>Education</a> » 
       </p>
     </div>
-
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -177,3 +178,4 @@
     </script>
   </body>
 </html>
+
