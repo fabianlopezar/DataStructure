@@ -68,16 +68,27 @@
         text-align: center;
       }
 
-      #game-info p, #game-description p {
+      /* Footer */
+      footer {
+        width: 100%;
+        background: #29293f;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 14px;
+        color: #d4bfff;
+        border-top: 2px solid #6a4ea0;
+      }
+
+      footer p {
         margin: 5px 0;
       }
 
-      #game-info a {
+      footer a {
         color: #8a64d6;
         text-decoration: none;
       }
 
-      #game-info a:hover {
+      footer a:hover {
         text-decoration: underline;
       }
     </style>
@@ -123,6 +134,16 @@
       </ul>
     </div>
 
+    <!-- Footer -->
+    <footer>
+      <p><strong>Creadores:</strong> Texto de los creadores</p>
+      <p><strong>GitHub:</strong> <a href="#">Texto del GitHub</a></p>
+      <p><strong>País:</strong> Colombia</p>
+      <p><strong>Genius Game Latam:</strong> <a href="https://www.geniusgameslatam.com/" target="_blank">https://www.geniusgameslatam.com/</a></p>
+      <p><strong>Instagram:</strong> <a href="#">Texto del Instagram</a></p>
+      <p><strong>LinkedIn:</strong> <a href="#">Texto del LinkedIn</a></p>
+    </footer>
+
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -130,48 +151,13 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var warningBanner = document.querySelector("#unity-warning");
 
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
-
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Data2.loader.js";
       var config = {
         dataUrl: buildUrl + "/Data2.data.unityweb",
         frameworkUrl: buildUrl + "/Data2.framework.js.unityweb",
         codeUrl: buildUrl + "/Data2.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Media Collab",
-        productName: "Data Structure",
-        productVersion: "0.1",
-        showBanner: unityShowBanner,
       };
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
 
       loadingBar.style.display = "block";
 
@@ -191,4 +177,5 @@
     </script>
   </body>
 </html>
+
 
